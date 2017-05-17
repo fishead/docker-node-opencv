@@ -2,7 +2,7 @@ FROM node:latest
 LABEL maintainer Zhang Chuan <zhangchuan@jcble.com>
 
 
-RUN apt-get update &&
+RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     build-essential cmake git libgtk2.0-dev pkg-config \
     libavcodec-dev libavformat-dev libswscale-dev \
