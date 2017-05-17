@@ -6,7 +6,7 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     build-essential cmake git libgtk2.0-dev pkg-config \
     libavcodec-dev libavformat-dev libswscale-dev \
-    ca-certificates
+    ca-certificates libhdf5-dev
 
 
 RUN git clone -b 3.2.0 --depth 1 https://github.com/opencv/opencv.git /usr/local/src/opencv
@@ -23,4 +23,5 @@ RUN cd /usr/local/src/opencv && \
           -D OPENCV_EXTRA_MODULES_PATH=/usr/local/src/opencv_contrib/modules \
           .. && \
     make -j"$(nproc)" && \
-    make install
+    make install && \
+    ldconfig
